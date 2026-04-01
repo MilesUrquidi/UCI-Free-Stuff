@@ -10,9 +10,9 @@ export default async function Home() {
     <main className="min-h-screen bg-white">
 
       {/* Centered hero */}
-      <section className="flex flex-col items-center text-center px-6 pt-20 pb-14">
+      <section className="flex flex-col items-center text-center px-6 pt-12 sm:pt-20 pb-10 sm:pb-14">
         <FadeIn delay={0}>
-          <h1 className="text-5xl font-bold text-gray-900 tracking-tight leading-tight max-w-xl">
+          <h1 className="text-3xl sm:text-5xl font-bold text-gray-900 tracking-tight leading-tight max-w-xl">
             Everything your UCI email unlocks.
           </h1>
         </FadeIn>
@@ -32,8 +32,8 @@ export default async function Home() {
       </section>
 
       {/* Dashboard container */}
-      <FadeIn delay={0.35} className="max-w-6xl mx-auto px-6 pb-20">
-        <div className="bg-[#F4F4F4] rounded-3xl p-6">
+      <FadeIn delay={0.35} className="max-w-6xl mx-auto px-3 sm:px-6 pb-20">
+        <div className="bg-[#F4F4F4] rounded-2xl sm:rounded-3xl p-3 sm:p-6">
           <Dashboard resources={resources} />
         </div>
       </FadeIn>

@@ -10,12 +10,12 @@ type Props = {
 
 export default function FiltersBar({ filters, active, onChange }: Props) {
   return (
-    <div className="flex flex-wrap gap-2 mb-6">
+    <div className="flex gap-2 mb-6 overflow-x-auto pb-1 scrollbar-none">
       {filters.map(f => (
         <button
           key={f.value}
           onClick={() => onChange(f.value)}
-          className={`px-4 py-1.5 rounded-full text-sm font-medium transition-colors ${
+          className={`shrink-0 px-4 py-1.5 rounded-full text-sm font-medium transition-colors ${
             active === f.value
               ? 'bg-[#005461] text-white'
               : 'bg-[#F4F4F4] text-gray-600 hover:bg-gray-200'
