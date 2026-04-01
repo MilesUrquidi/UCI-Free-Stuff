@@ -3,7 +3,7 @@ import { ExternalLink } from 'lucide-react'
 
 function LogoPlaceholder({ name }: { name: string }) {
   return (
-    <div className="w-11 h-11 rounded-xl bg-[#005461] flex items-center justify-center shrink-0">
+    <div className="w-11 h-11 rounded-xl bg-[#23c3ea] flex items-center justify-center shrink-0">
       <span className="text-white font-bold text-base">{name[0]}</span>
     </div>
   )
@@ -34,7 +34,7 @@ export default function ResourceRow({ resource }: { resource: Resource }) {
             )}
           </div>
           {resource.eligibility === 'uci-only' && (
-            <span className="text-xs font-medium text-[#018790]">UCI-Only</span>
+            <span className="text-xs font-medium text-[#3ab8d8]">UCI-Only</span>
           )}
         </div>
       </div>
@@ -48,7 +48,7 @@ export default function ResourceRow({ resource }: { resource: Resource }) {
       <div className="flex items-center justify-between pt-1 border-t border-gray-100">
         <span className={`text-xs font-semibold px-2.5 py-1 rounded-full ${
           isFree
-            ? 'bg-[#00B7B5]/10 text-[#005461]'
+            ? 'bg-[#04c0fd]/10 text-[#23c3ea]'
             : 'bg-gray-100 text-gray-600'
         }`}>
           {resource.value}
@@ -57,7 +57,7 @@ export default function ResourceRow({ resource }: { resource: Resource }) {
           href={resource.url}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center gap-1 text-xs font-semibold text-[#005461] hover:text-[#018790] transition-colors"
+          className="flex items-center gap-1 text-xs font-semibold text-[#23c3ea] hover:text-[#3ab8d8] transition-colors"
         >
           Get it <ExternalLink className="w-3 h-3" />
         </a>

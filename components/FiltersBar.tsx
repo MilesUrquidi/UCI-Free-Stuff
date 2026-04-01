@@ -17,7 +17,7 @@ export default function FiltersBar({ filters, active, onChange }: Props) {
           onClick={() => onChange(f.value)}
           className={`shrink-0 px-4 py-1.5 rounded-full text-sm font-medium transition-colors ${
             active === f.value
-              ? 'bg-[#005461] text-white'
+              ? 'bg-[#23c3ea] text-white'
               : 'bg-[#F4F4F4] text-gray-600 hover:bg-gray-200'
           }`}
         >

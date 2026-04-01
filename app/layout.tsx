@@ -9,8 +9,18 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "UCI Free Stuff",
+  title: "ZotDeals",
   description: "Every free tool, subscription, and perk available to UCI students — in one place.",
+  openGraph: {
+    title: "ZotDeals",
+    description: "Every free tool, subscription, and perk available to UCI students — in one place.",
+    type: "website",
+  },
+  twitter: {
+    card: "summary",
+    title: "ZotDeals",
+    description: "Every free tool, subscription, and perk available to UCI students — in one place.",
+  },
 };
 
 export default function RootLayout({

@@ -32,7 +32,7 @@ export default function AboutModal() {
             </button>
 
             <h2 className="text-2xl font-bold text-gray-900 mb-4">
-              About UCI Perks
+              About ZotDeals
             </h2>
             <p className="text-gray-600 leading-relaxed mb-6">
               Hey UCI students! Most people don't realize how much their{" "}
@@ -48,14 +48,14 @@ export default function AboutModal() {
                 href="https://github.com/MilesUrquidi"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-700 underline underline-offset-2 hover:text-[#005461] transition-colors"
+                className="text-gray-700 underline underline-offset-2 hover:text-[#23c3ea] transition-colors"
               >
                 Miles
               </a>
               . Know a perk that's missing?{" "}
               <button
                 onClick={() => setOpen(false)}
-                className="text-gray-700 underline underline-offset-2 hover:text-[#005461] transition-colors"
+                className="text-gray-700 underline underline-offset-2 hover:text-[#23c3ea] transition-colors"
               >
                 Submit it.
               </button>

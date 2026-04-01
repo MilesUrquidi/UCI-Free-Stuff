@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import AboutModal from './AboutModal'
 
 export default function Navbar() {
@@ -6,8 +7,8 @@ export default function Navbar() {
     <nav className="w-full border-b border-gray-100 bg-white">
       <div className="max-w-6xl mx-auto px-6 h-14 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2 font-semibold text-gray-900 text-sm">
-          <span className="w-6 h-6 rounded-md bg-[#005461] flex items-center justify-center text-white text-xs font-bold">U</span>
-          UCI Perks
+          <Image src="/logo.svg" alt="ZotDeals" width={32} height={32} />
+          <span className="text-base font-bold text-gray-900">ZotDeals</span>
         </Link>
         <AboutModal />
       </div>
