@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import AboutModal from './AboutModal'
 
 export default function Navbar() {
   return (
@@ -8,12 +9,7 @@ export default function Navbar() {
           <span className="w-6 h-6 rounded-md bg-[#005461] flex items-center justify-center text-white text-xs font-bold">U</span>
           UCI Perks
         </Link>
-        <Link
-          href="/submit"
-          className="text-sm font-medium text-gray-500 hover:text-gray-900 transition-colors"
-        >
-          Submit a Perk →
-        </Link>
+        <AboutModal />
       </div>
     </nav>
   )
