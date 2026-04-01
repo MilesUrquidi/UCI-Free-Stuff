@@ -24,7 +24,12 @@ export default function ResourceRow({ resource }: { resource: Resource }) {
   const logoUrl = getLogoUrl(resource)
 
   return (
-    <div className="bg-white border border-gray-200 rounded-2xl p-5 hover:border-gray-300 hover:shadow-sm transition-all flex flex-col gap-3 min-h-[160px]">
+    <a
+      href={resource.url}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="bg-white border border-gray-200 rounded-2xl p-5 hover:border-gray-300 hover:shadow-sm transition-all flex flex-col gap-3 min-h-[160px] cursor-pointer"
+    >
 
       {/* Header: logo + name */}
       <div className="flex items-center gap-3">
@@ -65,15 +70,10 @@ export default function ResourceRow({ resource }: { resource: Resource }) {
         }`}>
           {resource.value}
         </span>
-        <a
-          href={resource.url}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center gap-1 text-xs font-semibold text-[#23c3ea] hover:text-[#3ab8d8] transition-colors"
-        >
+        <span className="flex items-center gap-1 text-xs font-semibold text-[#23c3ea]">
           Get it <ExternalLink className="w-3 h-3" />
-        </a>
+        </span>
       </div>
-    </div>
+    </a>
   )
 }
