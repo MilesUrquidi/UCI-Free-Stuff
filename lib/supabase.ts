@@ -17,6 +17,7 @@ export type Resource = {
   source: string
   status: 'active' | 'expired' | 'unverified'
   is_new: boolean
+  sort_order: number
   created_at: string
 }
 
@@ -25,7 +26,7 @@ export async function getResources(tag?: string) {
     .from('resources')
     .select('*')
     .eq('status', 'active')
-    .order('is_new', { ascending: false })
+    .order('sort_order', { ascending: true })
 
   if (tag && tag !== 'all') {
     query = query.contains('tags', [tag])
