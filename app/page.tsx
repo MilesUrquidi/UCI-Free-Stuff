@@ -17,8 +17,8 @@ export default async function Home() {
         </FadeIn>
         <FadeIn delay={0.1}>
           <p className="mt-4 text-gray-400 text-base max-w-md leading-relaxed">
-            Free tools, software, and discounts for UCI students — all in one
-            place.
+            Free tools, software, and discounts for UCI students <br /> all in
+            one place.
           </p>
         </FadeIn>
         <FadeIn delay={0.2}>
