@@ -13,7 +13,7 @@ export default function ResourceTable({
 }) {
   if (resources.length === 0) {
     return (
-      <p className="text-gray-400 text-sm py-12 text-center">No perks found.</p>
+      <p className="text-gray-400 text-sm py-12 text-center">No deals found.</p>
     );
   }
 

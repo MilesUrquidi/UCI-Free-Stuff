@@ -63,13 +63,20 @@ export default function ResourceRow({ resource }: { resource: Resource }) {
 
       {/* Footer: value + link */}
       <div className="flex items-center justify-between pt-1 border-t border-gray-100">
-        <span className={`text-xs font-semibold px-2.5 py-1 rounded-full ${
-          isFree
-            ? 'bg-[#04c0fd]/10 text-[#23c3ea]'
-            : 'bg-amber-50 text-amber-600'
-        }`}>
-          {resource.value}
-        </span>
+        <div className="flex items-center gap-2">
+          <span className={`text-xs font-semibold px-2.5 py-1 rounded-full ${
+            isFree
+              ? 'bg-[#04c0fd]/10 text-[#23c3ea]'
+              : 'bg-amber-50 text-amber-600'
+          }`}>
+            {resource.value}
+          </span>
+          {resource.retail_value && (
+            <span className="text-xs font-medium px-2.5 py-1 rounded-full bg-slate-100 text-slate-500">
+              {resource.retail_value}
+            </span>
+          )}
+        </div>
         <span className="flex items-center gap-1 text-xs font-semibold text-[#23c3ea]">
           Get it <ExternalLink className="w-3 h-3" />
         </span>

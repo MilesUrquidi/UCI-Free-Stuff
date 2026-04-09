@@ -36,7 +36,7 @@ export default function Dashboard({ resources }: { resources: Resource[] }) {
         <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
         <input
           type="text"
-          placeholder="Search perks..."
+          placeholder="Search deals..."
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           className="w-full pl-10 pr-4 py-2.5 bg-white border border-gray-200 rounded-xl text-sm placeholder:text-gray-400 focus:outline-none focus:border-[#04c0fd] transition-colors"
@@ -48,6 +48,9 @@ export default function Dashboard({ resources }: { resources: Resource[] }) {
         active={activeFilter}
         onChange={setActiveFilter}
       />
+      <p className="text-xs text-gray-400 mb-3">
+        {filtered.length} {filtered.length === 1 ? 'deal' : 'deals'}
+      </p>
       <ResourceTable resources={filtered} filterKey={activeFilter} />
     </div>
   );

@@ -19,6 +19,7 @@ export type Resource = {
   is_new: boolean
   sort_order: number
   created_at: string
+  retail_value: string | null
 }
 
 export async function getResources(tag?: string) {
