@@ -19,7 +19,13 @@ function LogoPlaceholder({ name }: { name: string }) {
   )
 }
 
-export default function ResourceRow({ resource }: { resource: Resource }) {
+export default function ResourceRow({
+  resource,
+  onCardClick,
+}: {
+  resource: Resource
+  onCardClick: (name: string, url: string) => void
+}) {
   const isFree = resource.value.toLowerCase() === 'free'
   const logoUrl = getLogoUrl(resource)
 
@@ -28,6 +34,10 @@ export default function ResourceRow({ resource }: { resource: Resource }) {
       href={resource.url}
       target="_blank"
       rel="noopener noreferrer"
+      onClick={(e) => {
+        e.preventDefault()
+        onCardClick(resource.name, resource.url)
+      }}
       className="bg-white border border-gray-200 rounded-2xl p-5 hover:border-gray-300 hover:shadow-sm transition-all flex flex-col gap-3 min-h-[160px] cursor-pointer"
     >
 

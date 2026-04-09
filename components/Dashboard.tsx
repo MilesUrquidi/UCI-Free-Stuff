@@ -1,10 +1,13 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Search } from "lucide-react";
+import { AnimatePresence } from "framer-motion";
 import { Resource } from "@/lib/supabase";
 import FiltersBar from "./FiltersBar";
 import ResourceTable from "./ResourceTable";
+import EmailGateModal from "./EmailGateModal";
+import ShareModal from "./ShareModal";
 
 const FILTERS = [
   { label: "All", value: "all" },
@@ -19,6 +22,8 @@ const FILTERS = [
 export default function Dashboard({ resources }: { resources: Resource[] }) {
   const [activeFilter, setActiveFilter] = useState("all");
   const [query, setQuery] = useState("");
+  const [pendingDeal, setPendingDeal] = useState<{ name: string; url: string } | null>(null);
+  const [shareModalOpen, setShareModalOpen] = useState(false);
 
   const filtered = resources
     .filter((r) => activeFilter === "all" || r.tags.includes(activeFilter))
@@ -28,6 +33,33 @@ export default function Dashboard({ resources }: { resources: Resource[] }) {
         r.name.toLowerCase().includes(query.toLowerCase()) ||
         r.description.toLowerCase().includes(query.toLowerCase())
     );
+
+  useEffect(() => {
+    const handleReturn = () => {
+      if (localStorage.getItem("zotdeals_visited_from_deal")) {
+        localStorage.removeItem("zotdeals_visited_from_deal");
+        setShareModalOpen(true);
+      }
+    };
+    window.addEventListener("focus", handleReturn);
+    return () => window.removeEventListener("focus", handleReturn);
+  }, []);
+
+  function handleCardClick(name: string, url: string) {
+    const hasEmail = localStorage.getItem("zotdeals_email");
+    if (hasEmail) {
+      localStorage.setItem("zotdeals_visited_from_deal", "true");
+      window.open(url, "_blank");
+    } else {
+      setPendingDeal({ name, url });
+    }
+  }
+
+  function handleEmailSuccess(url: string) {
+    setPendingDeal(null);
+    localStorage.setItem("zotdeals_visited_from_deal", "true");
+    window.open(url, "_blank");
+  }
 
   return (
     <div>
@@ -49,9 +81,30 @@ export default function Dashboard({ resources }: { resources: Resource[] }) {
         onChange={setActiveFilter}
       />
       <p className="text-xs text-gray-400 mb-3">
-        {filtered.length} {filtered.length === 1 ? 'deal' : 'deals'}
+        {filtered.length} {filtered.length === 1 ? "deal" : "deals"}
       </p>
-      <ResourceTable resources={filtered} filterKey={activeFilter} />
+      <ResourceTable
+        resources={filtered}
+        filterKey={activeFilter}
+        onCardClick={handleCardClick}
+      />
+
+      <AnimatePresence>
+        {pendingDeal && (
+          <EmailGateModal
+            resourceName={pendingDeal.name}
+            resourceUrl={pendingDeal.url}
+            onSuccess={handleEmailSuccess}
+            onClose={() => setPendingDeal(null)}
+          />
+        )}
+      </AnimatePresence>
+
+      <AnimatePresence>
+        {shareModalOpen && (
+          <ShareModal onClose={() => setShareModalOpen(false)} />
+        )}
+      </AnimatePresence>
     </div>
   );
 }

@@ -22,6 +22,11 @@ export type Resource = {
   retail_value: string | null
 }
 
+export async function addSubscriber(email: string) {
+  const { error } = await supabase.from('subscribers').insert({ email })
+  if (error && error.code !== '23505') throw error // ignore duplicate emails
+}
+
 export async function getResources(tag?: string) {
   let query = supabase
     .from('resources')
