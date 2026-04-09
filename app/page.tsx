@@ -21,16 +21,6 @@ export default async function Home() {
             one place.
           </p>
         </FadeIn>
-        <FadeIn delay={0.2}>
-          <Link
-            href="https://docs.google.com/forms/d/e/1FAIpQLSdJRSRzrb5tulw2ZhsbVppnDlVEFJI0E_t3iPryPtIpDowtyw/viewform?usp=publish-editor"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-7 inline-flex items-center gap-2 px-6 py-3 bg-gray-900 text-white text-sm font-semibold rounded-full hover:bg-[#23c3ea] hover:-translate-y-0.5 transition-all"
-          >
-            Submit a deal →
-          </Link>
-        </FadeIn>
       </section>
 
       {/* Dashboard container */}
@@ -39,6 +29,19 @@ export default async function Home() {
           <Dashboard resources={resources} />
         </div>
       </FadeIn>
+
+      {/* Footer */}
+      <footer className="flex flex-col items-center gap-3 py-10 text-sm text-gray-400">
+        Know a deal we're missing?
+        <Link
+          href="https://docs.google.com/forms/d/e/1FAIpQLSdJRSRzrb5tulw2ZhsbVppnDlVEFJI0E_t3iPryPtIpDowtyw/viewform?usp=publish-editor"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-2 px-6 py-3 bg-gray-900 text-white text-sm font-semibold rounded-full hover:bg-[#23c3ea] hover:-translate-y-0.5 transition-all"
+        >
+          Submit a deal →
+        </Link>
+      </footer>
     </main>
   );
 }
