@@ -10,16 +10,19 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: "ZotDeals",
-  description: "Every free tool, subscription, and perk available to UCI students — in one place.",
+  description:
+    "Every free tool, subscription, and perk available to UCI students — in one place.",
   openGraph: {
     title: "ZotDeals",
-    description: "Every free tool, subscription, and perk available to UCI students — in one place.",
+    description:
+      "Every free tool, subscription, and perk available to UCI students — in one place.",
     type: "website",
   },
   twitter: {
     card: "summary",
     title: "ZotDeals",
-    description: "Every free tool, subscription, and perk available to UCI students — in one place.",
+    description:
+      "Every free tool, subscription, and perk available to UCI students — in one place.",
   },
 };
 

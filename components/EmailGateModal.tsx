@@ -23,11 +23,15 @@ export default function EmailGateModal({
     e.preventDefault()
     if (!email) return
     setLoading(true)
+    // Open the tab immediately (synchronous, counts as user gesture)
+    const tab = window.open(resourceUrl, "_blank")
     try {
       await addSubscriber(email)
     } finally {
       localStorage.setItem("zotdeals_email", email)
       setLoading(false)
+      // Fallback: if popup was blocked, navigate current tab
+      if (!tab || tab.closed) window.location.href = resourceUrl
       onSuccess(resourceUrl)
     }
   }
