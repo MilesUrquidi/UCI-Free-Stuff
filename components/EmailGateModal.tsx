@@ -15,7 +15,7 @@ export default function EmailGateModal({
 }: {
   resourceName: string
   resourceUrl: string
-  onSuccess: (url: string) => void
+  onSuccess: () => void
   onClose: () => void
 }) {
   const [email, setEmail] = useState("")
@@ -34,7 +34,7 @@ export default function EmailGateModal({
       setLoading(false)
       // Fallback: if popup was blocked, navigate current tab
       if (!tab || tab.closed) window.location.href = resourceUrl
-      onSuccess(resourceUrl)
+      onSuccess()
     }
   }
 
@@ -57,6 +57,7 @@ export default function EmailGateModal({
         >
           <button
             onClick={onClose}
+            aria-label="Close"
             className="absolute top-5 right-5 text-gray-400 hover:text-gray-900 transition-colors"
           >
             <X className="w-5 h-5" />

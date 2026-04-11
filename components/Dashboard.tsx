@@ -64,18 +64,19 @@ export default function Dashboard({ resources }: { resources: Resource[] }) {
     }
   }
 
-  function handleEmailSuccess(url: string) {
+  function handleEmailSuccess() {
     setPendingDeal(null);
     localStorage.setItem("zotdeals_visited_from_deal", "true");
-    window.open(url, "_blank");
   }
 
   return (
     <div>
       {/* Search */}
       <div className="relative mb-5">
+        <label htmlFor="search" className="sr-only">Search deals</label>
         <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
         <input
+          id="search"
           type="text"
           placeholder="Search deals..."
           value={query}
